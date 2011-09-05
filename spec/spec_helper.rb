@@ -22,3 +22,15 @@ class Logger
   end
   
 end
+
+class MockFile
+  attr_accessor :contents
+  def initialize
+    @contents = ""
+  end
+  
+  def write(value)
+    @contents << value
+  end
+  
+end
