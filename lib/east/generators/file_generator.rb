@@ -1,6 +1,6 @@
-require "to_the_east/setup"
+require "east/setup"
 
-module ToTheEast::Generators
+module East::Generators
   class FileGenerator
     
     def initialize(filename, options = {})
@@ -11,10 +11,10 @@ module ToTheEast::Generators
     def do(content_strategy)
       if !File.exists?(@filename)
         File.open(@filename, 'w') do |file|
-          content_strategy.new(file).writefile 
+          content_strategy.new(file).writefile(@filename)
         end
         
-        Logger::log(@message)
+        East::logger.log(@message)
       end
       
     end

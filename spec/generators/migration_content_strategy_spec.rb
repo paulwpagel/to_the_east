@@ -1,10 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 
-describe ToTheEast::Generators::MigrationContentStrategy do
+describe East::Generators::MigrationContentStrategy do
   
   before(:each) do
     @file = MockFile.new
-    ToTheEast::Generators::MigrationContentStrategy.new(@file).writefile("first_migration")
+    East::Generators::MigrationContentStrategy.new(@file).writefile("first_migration")
   end
   
   it "generates up and down methods" do

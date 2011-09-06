@@ -1,4 +1,4 @@
-module ToTheEast::Generators
+module East::Generators
   class MigrationContentStrategy
     
     def initialize(file)

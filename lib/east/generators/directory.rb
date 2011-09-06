@@ -1,4 +1,5 @@
-module ToTheEast::Generators
+require "fileutils"
+module East::Generators
   class Directory
 
     def initialize(dir_name, options = {})
@@ -9,7 +10,7 @@ module ToTheEast::Generators
     def do
       if !Dir.exists?(@dir_name)
         FileUtils.mkdir(@dir_name)
-        Logger::log(@message)
+        East::logger.log(@message)
       end  
     end
 

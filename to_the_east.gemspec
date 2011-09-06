@@ -1,9 +1,9 @@
 $:.push File.expand_path("../lib", __FILE__)
-require "to_the_east/version"
+require "east/version"
 
 Gem::Specification.new do |s|
-  s.name        = "to_the_east"
-  s.version     = ToTheEast::VERSION
+  s.name        = "east"
+  s.version     = East::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Paul Pagel"]
   s.homepage    = "http://github.com/paulwpagel/instant_quote_client"

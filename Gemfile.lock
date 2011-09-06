@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    to_the_east (0.0.1)
+    east (0.0.1)
 
 GEM
   remote: http://rubygems.org/
@@ -22,5 +22,5 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest
+  east!
   rspec
-  to_the_east!
