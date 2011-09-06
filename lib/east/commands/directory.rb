@@ -1,5 +1,5 @@
 require "fileutils"
-module East::Generators
+module East::Commands
   class Directory
 
     def initialize(dir_name, options = {})

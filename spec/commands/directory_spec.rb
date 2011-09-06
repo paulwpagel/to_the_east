@@ -1,12 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
-require "east/generators/directory"
+require "east/commands/directory"
 
-describe East::Generators::Directory do
+describe East::Commands::Directory do
   
   before do
     East::logger = East::Loggers::InMemory.new  
     @db_dir = File.expand_path(File.dirname(__FILE__) + "/data")
-    East::Generators::Directory.new(@db_dir, :message => "created db/data").do
+    East::Commands::Directory.new(@db_dir, :message => "created db/data").do
   end
   
   after(:each) do
