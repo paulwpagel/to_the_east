@@ -15,7 +15,6 @@ module East::Commands
       tabbed_line("end", 1)
       
       writeline("end")
-      
     end
     
     def writeline(contents)

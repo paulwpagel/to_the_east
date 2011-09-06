@@ -12,12 +12,20 @@ describe East::Generator do
     Time.stub!(:now).and_return(@now)
   end
     
-  it "generates the directory" do
+  it "generates the db directory" do
+    East::Commands::Directory.should_receive(:new).with(East::Generator::DB_DIR, :message => "created db").and_return(@dir)
+    @dir.should_receive(:do)
+    
+    East::Generator::generate("name")
+  end
+  
+  it "generates the data directory" do
     East::Commands::Directory.should_receive(:new).with(East::Generator::DATA_DIR, :message => "created db/data").and_return(@dir)
     @dir.should_receive(:do)
     
     East::Generator::generate("name")
   end
+  
   
   it "generates the file" do
     filename = "#{East::Generator::DATA_DIR}/#{@now.strftime("%Y%m%d%L")}_name.rb"
