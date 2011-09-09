@@ -3,18 +3,18 @@ require "east/setup"
 module East::Commands
   class FileGenerator
     
-    def initialize(filename, migration_name, options = {})
+    def initialize(filename, options = {})
       @filename = filename
-      @migration_name = migration_name
+      @options = options
       @message = options[:message] || ""
     end
     
     def do(content_strategy)
       if !File.exists?(@filename)
         File.open(@filename, 'w') do |file|
-          content_strategy.new(file).writefile(@migration_name)
+          content_strategy.new(file, @options).writefile
         end
-        
+
         East::logger.log(@message)
       end
       

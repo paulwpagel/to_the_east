@@ -4,7 +4,7 @@ describe East::Commands::MigrationContentStrategy do
   
   before(:each) do
     @file = MockFile.new
-    East::Commands::MigrationContentStrategy.new(@file).writefile("first_migration")
+    East::Commands::MigrationContentStrategy.new(@file, {:migration_name => "first_migration"}).writefile
   end
   
   it "generates up and down methods" do

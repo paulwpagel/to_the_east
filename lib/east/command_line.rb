@@ -1,7 +1,12 @@
 require "east/logger"
-require "east/generator"
+
+require "east/commands/migration_generator"
+require "east/commands/generate_install"
 
 module East
+  DB_DIR   = "#{Rails.root}/db"
+  DATA_DIR = "#{DB_DIR}/data"
+  DB_MIGRATE = "#{DB_DIR}/migrate"
   
   class CommandLine
     
@@ -10,8 +15,11 @@ module East
     end
     
     def execute(args)
-      migration_filename = args[1]
-      Generator.generate(migration_filename)
+      if args[0] == "generate"
+        Commands::MigrationGenerator.generate(args[1])
+      else
+        Commands::GenerateInstall.install
+      end
     end
     
   end

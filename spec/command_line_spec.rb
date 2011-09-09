@@ -31,8 +31,21 @@ describe East::CommandLine do
     end
   
     it "generates a data migration" do
-      East::Generator.should_receive(:generate).with("convert_to_metric")
+      East::Commands::MigrationGenerator.should_receive(:generate).with("convert_to_metric")
       @command_line.execute(["generate", "convert_to_metric"])
+    end
+    
+  end
+  
+  context "install" do
+    
+    before(:each) do
+      @command_line = East::CommandLine.new(:logger => East::Loggers::InMemory.new)
+    end
+    
+    it "generates a data migration" do
+      East::Commands::GenerateInstall.should_receive(:install)
+      @command_line.execute(["install"])
     end
     
   end

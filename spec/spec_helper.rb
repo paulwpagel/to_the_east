@@ -18,3 +18,8 @@ class MockFile
   end
   
 end
+
+def stub_time
+  @now = Time.now
+  Time.stub!(:now).and_return(@now)
+end

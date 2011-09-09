@@ -19,7 +19,9 @@ describe East::Commands::FileGenerator  do
     end
     
     def call_do
-      East::Commands::FileGenerator.new(@migration_filename, @migration_name, :message => @message).do(@strategy_factory)
+      @options = {:message => @message, :migration_name =>@migration_name }
+      
+      East::Commands::FileGenerator.new(@migration_filename, @options).do(@strategy_factory)
     end
     
     it "starts the file with a timestamp" do
@@ -28,8 +30,8 @@ describe East::Commands::FileGenerator  do
     end
     
     it "calls the content strategy" do
-      @strategy_factory.should_receive(:new).with(anything).and_return(@content_strategy)
-      @content_strategy.should_receive(:writefile).with(@migration_name)
+      @strategy_factory.should_receive(:new).with(anything, anything).and_return(@content_strategy)
+      @content_strategy.should_receive(:writefile)
       call_do
     end
     
